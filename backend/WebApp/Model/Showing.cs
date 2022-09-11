@@ -22,11 +22,8 @@ namespace WebApp.Model
         public bool Dubbing { get; set; }
         public bool Subtitles { get; set; }
 
-
+        //navigation property for ef core
         public CinemaHall? CinemaHall { get; set; }
         public Movie? Movie { get; set; }
-
-        public List<Reservation>? Reservations { get; set; }
     }
-}
 }

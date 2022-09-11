@@ -15,8 +15,10 @@ namespace WebApp.Model
         public int year { get; set; }
         [Required]
         public int length { get; set; }
-        [Required]
         public string posterURL { get; set; } = string.Empty;
+
+        //navigation property for ef core
+        public List<Showing> Showings { get; set; }
 
     }
 }
