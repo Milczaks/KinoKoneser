@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace WebApp.Model
@@ -23,7 +24,11 @@ namespace WebApp.Model
         public bool Subtitles { get; set; }
 
         //navigation property for ef core
+        [JsonIgnore]
         public CinemaHall? CinemaHall { get; set; }
+        [JsonIgnore]
         public Movie? Movie { get; set; }
+        [JsonIgnore]
+        public List<Ticket>? Tickets { get; set; }
     }
 }

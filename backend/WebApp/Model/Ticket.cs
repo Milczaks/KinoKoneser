@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace WebApp.Model
 {
@@ -21,6 +22,7 @@ namespace WebApp.Model
 
 
         //navigation property for ef core
+        [JsonIgnore]
         public Showing? Showing { get; set; }
 
     }

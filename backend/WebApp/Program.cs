@@ -15,6 +15,9 @@ builder.Services.AddDbContext<AppDbContext>(
     );
 
 builder.Services.AddScoped<IMovieRepository, MovieRepository>();
+builder.Services.AddScoped<ITicketRepository, TicketRepository>();
+builder.Services.AddScoped<IShowingRepository, ShowingRepository>();
+builder.Services.AddScoped<ICinemaHallRepository, CinemaHallRepository>();
 
 var app = builder.Build();
 

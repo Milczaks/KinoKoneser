@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace WebApp.Model
 {
@@ -18,6 +19,7 @@ namespace WebApp.Model
         public string posterURL { get; set; } = string.Empty;
 
         //navigation property for ef core
+        [JsonIgnore]
         public List<Showing> Showings { get; set; }
 
     }

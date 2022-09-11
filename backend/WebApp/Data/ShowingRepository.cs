@@ -46,12 +46,12 @@ namespace WebApp.Data
             return db.showings.ToList();
         }
 
-        public Movie GetShowingById(int id)
+        public Showing GetShowingById(int id)
         {
             return db.showings.FirstOrDefault(x => x.ShowingId == id);
         }
 
-        public bool UpdateMovie(Showing showing)
+        public bool UpdateShowing(Showing showing)
         {
             try
             {

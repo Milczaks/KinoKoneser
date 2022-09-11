@@ -10,7 +10,7 @@ using WebApp.Model;
 namespace WebApp.Controllers
 {
     [Route("api/showings")]
-    [Tags("Movies")]
+    [Tags("Showings")]
     [ApiController]
     public class ShowingController : ControllerBase
     {

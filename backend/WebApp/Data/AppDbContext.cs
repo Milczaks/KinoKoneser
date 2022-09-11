@@ -27,10 +27,10 @@ namespace WebApp.Data
                 .WithOne(c => c.CinemaHall)
                 .HasForeignKey(c => c.CinemaHallId);
 
-            //modelBuilder.Entity<Showing>()
-            //    .HasMany(t => t.Tickets)
-            //    .WithOne(m => m.Showing)
-            //    .HasForeignKey(m => m.TicketId);
+            modelBuilder.Entity<Showing>()
+                .HasMany(t => t.Tickets)
+                .WithOne(m => m.Showing)
+                .HasForeignKey(m => m.ShowingId);
 
             //base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Movie>().HasData(
