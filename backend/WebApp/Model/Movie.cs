@@ -20,7 +20,7 @@ namespace WebApp.Model
 
         //navigation property for ef core
         [JsonIgnore]
-        public List<Showing> Showings { get; set; }
+        public List<Showing>? Showings { get; set; }
 
     }
 }
