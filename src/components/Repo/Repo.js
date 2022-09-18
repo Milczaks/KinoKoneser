@@ -1,6 +1,7 @@
 import React from "react";
 import API_URL from "../../utilities/Constants";
 import { useEffect, useState, useCallback } from "react";
+import { NavLink } from "react-router-dom";
 
 function Repo() {
   const [loadedMovies, setLoadedMovies] = useState([]);
@@ -23,8 +24,6 @@ function Repo() {
     fetchMovieHandler();
   }, [fetchMovieHandler]);
 
-  console.log(loadedMovies);
-
   return (
     <div className="font3 mg">
       <h2>Repertuar</h2>
@@ -33,46 +32,26 @@ function Repo() {
         podczas doboru repertuaru.
       </p>
       <p className="font center">U nas zobaczysz takie wspaniałe filmy, jak:</p>
-      <div className="cent">
-        <div className="font2">
+      {loadedMovies.map((movie) => (
+        <div className="cent font2" key={movie.movieId}>
           <div className="right-s">
             <p>Nazwa filmu:</p>
-            <p className="font3 no-space center important">
-              {loadedMovies.title}
-            </p>
+            <NavLink
+              to={`/movies/${movie.movieId}`}
+              className="font3 no-space center important"
+            >
+              {movie.title}
+            </NavLink>
             <p>Data produkcji:</p>
-            <p className="font center">{loadedMovies.year}</p>
+            <p className="font center">{movie.year}</p>
           </div>
-          <img
-            className="left-s little"
-            src={loadedMovies.posterURL}
-            alt={loadedMovies.title}
-          ></img>
+          <NavLink to={`/movies/${movie.movieId}`} className="left-s b">
+            <img className="s" src={movie.posterURL} alt={movie.title}></img>
+          </NavLink>
         </div>
-      </div>
-
-      <div className="cent">
-        <div className="font2">
-          <div className="right-s">
-            <p>Nazwa filmu:</p>
-            <p className="font3 no-space center important">
-              {loadedMovies.title}
-            </p>
-            <p>Data produkcji:</p>
-            <p className="font center">{loadedMovies.year}</p>
-          </div>
-          <img
-            className="left-s little"
-            src={loadedMovies.posterURL}
-            alt={loadedMovies.title}
-          ></img>
-        </div>
-      </div>
+      ))}
+      ;
     </div>
-    
-
-
-    
   );
 }
 

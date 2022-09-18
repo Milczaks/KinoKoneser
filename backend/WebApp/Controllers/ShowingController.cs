@@ -28,7 +28,7 @@ namespace WebApp.Controllers
         }
 
         [HttpGet("{id}")]
-        public Showing GetShowingById(int id)
+        public List<Showing> GetShowingById(int id)
         {
             return showingRepository.GetShowingById(id);
         }

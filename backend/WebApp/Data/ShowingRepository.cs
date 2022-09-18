@@ -46,9 +46,9 @@ namespace WebApp.Data
             return db.showings.ToList();
         }
 
-        public Showing GetShowingById(int id)
+        public List<Showing> GetShowingById(int id)
         {
-            return db.showings.FirstOrDefault(x => x.ShowingId == id);
+            return db.showings.Where(x => x.MovieId == id).ToList();
         }
 
         public bool UpdateShowing(Showing showing)

@@ -1,13 +1,10 @@
 //import React, { useState, useEffect } from "react";
 import API_URL from "../../utilities/Constants";
 import { useEffect, useState, useCallback } from "react";
-
-// import { useParams } from "react-router-dom";
-
-// const params = useParams();
-// const { orderId } = params;
+import { NavLink } from "react-router-dom";
 
 const Start = () => {
+
   const [loadedMovie4, setLoadedMovie4] = useState([]);
   const [loadedMovie8, setLoadedMovie8] = useState([]);
   const fetchMovie4Handler = useCallback(async () => {
@@ -28,7 +25,7 @@ const Start = () => {
   useEffect(() => {
     fetchMovie4Handler();
   }, [fetchMovie4Handler]);
-  
+
   const fetchMovie8Handler = useCallback(async () => {
     try {
       const response = await fetch(`${API_URL}/movies/8`);
@@ -48,8 +45,6 @@ const Start = () => {
     fetchMovie8Handler();
   }, [fetchMovie8Handler]);
 
-  console.log(loadedMovie4);
-
   return (
     <div>
       <div className="font3 mg">
@@ -59,42 +54,56 @@ const Start = () => {
         <p className="font3 space">POLECANE FILMY</p>
         <p className="center space">
           Na dzień dzisiejszy, polecamy wszystkim naszym gościom
-          dwie najpopularniejsze i najchętniej wyszukiwane seanse:
+          najpopularniejsze dwie premiery filmowe:
           <br />
           <br />
         </p>
-        <div>
+        <div className="cent font2">
           <div className="right-s">
             <p>Nazwa filmu:</p>
-            <p className="font3 no-space center important">
+            <NavLink
+              to={`/movies/${loadedMovie4.movieId}`}
+              className="font3 no-space cent important"
+            >
               {loadedMovie4.title}
-            </p>
+            </NavLink>
             <p>Opis:</p>
             <p className="font center">{loadedMovie4.description}</p>
             <p>Data produkcji:</p>
             <p className="font center">{loadedMovie4.year}</p>
           </div>
-          <img
-            className="left-s little"
-            src={loadedMovie4.posterURL}
-            alt={loadedMovie4.title}
-          ></img>
-          
+          <NavLink to = {`/movies/${loadedMovie4.movieId}`} className="left-s b">
+            <img
+              className="s"
+              src={loadedMovie4.posterURL}
+              alt={loadedMovie4.title}
+            ></img>
+          </NavLink>
+        </div>
+        <div className="cent font2">
           <div className="right-s">
-            <p>Nazwa filmu:</p>
-            <p className="font3 no-space center important">
+            <p>Nazwa filmu:</p> 
+            
+            <NavLink
+              to={`/movies/${loadedMovie8.movieId}`}
+              className="font3 no-space cent important"
+            >
               {loadedMovie8.title}
-            </p>
+            </NavLink>
+           
             <p>Opis:</p>
             <p className="font center">{loadedMovie8.description}</p>
             <p>Data produkcji:</p>
             <p className="font center">{loadedMovie8.year}</p>
           </div>
-          <img
-            className="left-s little"
-            src={loadedMovie8.posterURL}
-            alt={loadedMovie8.title}
-          ></img>
+
+          <NavLink to = {`/movies/${loadedMovie8.movieId}`} className="left-s b">
+            <img
+              className="s"
+              src={loadedMovie8.posterURL}
+              alt={loadedMovie8.title}
+            ></img>
+          </NavLink>
         </div>
       </div>
     </div>

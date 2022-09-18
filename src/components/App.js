@@ -8,40 +8,33 @@ import Contact from "./Contact/Contact";
 import Repo from "./Repo/Repo";
 import Navbar from "./Navbar.js";
 //import Footer from "./Footer";
+import Movie from "./Movie/Movie";
+import NotFound from "./NotFound";
 
 //<img src={kinoKoneser} alt="logo" />
 function App() {
   return (
-    <><BrowserRouter>
-      <Navbar />
-      <div className="App">
-        <header className="App-header">
-          <Routes>
-            <Route path="/" element={<Start />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/kontakt" element={<Contact />} />
-            <Route path="/repertuar" element={<Repo />} />
-          </Routes>
-        </header>
-      </div>
-
-    </BrowserRouter>
-    <footer className="foot">
+    <>
+      <BrowserRouter>
+        <Navbar />
+        <div className="App">
+          <header className="App-header">
+            <Routes>
+              <Route path="/" element={<Start />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/kontakt" element={<Contact />} />
+              <Route path="/movies/:ID" element={<Movie />} />
+              <Route path="/repertuar" element={<Repo />} />
+              <Route path="/*" element={<NotFound />} />
+            </Routes>
+          </header>
+        </div>
+      </BrowserRouter>
+      <footer className="foot">
         &copy; Milena Grzyb <br />
         Wojskowa Akademia Techniczna 2022
-    </footer></>
- );
-
+      </footer>
+    </>
+  );
 }
-
-/*
-<BrowserRouter>
-  <Routes>
-    <Route path="/start">
-      <Start />
-    </Route>
-  </Routes>
-</BrowserRouter>;
-*/
-
 export default App;

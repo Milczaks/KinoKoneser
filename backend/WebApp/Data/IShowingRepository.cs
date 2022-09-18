@@ -9,7 +9,7 @@ namespace WebApp.Data
     public interface IShowingRepository
     {
         List<Showing> GetAllShowings();
-        Showing GetShowingById(int id);
+        List<Showing> GetShowingById(int id);
         bool AddShowing(Showing showing);
         bool UpdateShowing(Showing showing);
         bool DeleteShowing(int id);
