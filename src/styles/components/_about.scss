@@ -1,0 +1,45 @@
+.space{
+  margin-top: 60px;
+}
+  .mg {
+    margin-top: 80px;
+  }
+  
+  .left {
+    width: 30%;
+    float: left;
+    margin-left: 2px;
+  }
+  
+  .right {
+    width: 69%;
+    float: right;
+    border-radius: 4px;
+    background-color: rgba(247, 232, 246, 0.404);
+  }
+
+  
+  .mininav {
+    background-color: rgb(218, 179, 236);
+    left: 0px;
+    right: 0px;
+    color: rgb(39, 25, 25);
+    box-shadow: $shadow-2;
+    font-size: 18px;
+    padding: .3rem 2rem;
+    margin: 0 .2rem;
+    border-radius: 5px;
+    text-decoration: none;
+
+    & > .mininav:hover {
+      color: rgb(255, 255, 255);
+      background-color: rgb(158, 64, 135);
+    }
+  }
+  
+  img {
+    border: 1px solid rgb(222, 167, 248);
+    border-radius: 4px;
+    width: 100%;
+  }
+  
