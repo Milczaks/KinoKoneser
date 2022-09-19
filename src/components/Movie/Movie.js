@@ -87,7 +87,7 @@ function Movie() {
               <p>Numer sali: </p>
               <p className="ticket-p1">{showing.cinemaHallId}</p>
             </div>
-            <div><button>Rezerwuj</button></div>
+            <div><button className="bt">Rezerwuj</button></div>
           </div>
         ))}
       </div>
