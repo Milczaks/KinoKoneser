@@ -1,22 +1,21 @@
 .left-s {
-    height: 280px;
-    width: 15%;
-    float: left;
-    margin-left: 50px;
-  }
+  height: 280px;
+  width: 15%;
+  float: left;
+  margin-left: 50px;
+}
 
-  .s {
+.s {
     height: 270px;
     float: left;
   }
-
-.right-s {
-  width: 80%;
-  float: right;
-  border-radius: 8px;
-  background-color: rgba(247, 232, 246, 0.404);
-}
-
-.b {border: none;
-  cursor: pointer;
-}
+ .right-s {
+    width: 80%;
+    float: right;
+    border-radius: 8px;
+    background-color: rgba(247, 232, 246, 0.404);
+ }
+ .b {
+    border: none;
+    cursor: pointer;
+  }

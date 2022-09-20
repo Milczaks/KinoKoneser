@@ -104,19 +104,19 @@ body {
   }
 
   & .bt:hover,
-  & .bt:active {
+    .bt:active {
     background-color: #510674;
     border-color: #510674;
   }
 
-  .bt.alternative {
+  & .bt.alternative {
     color: #220131;
     border-color: transparent;
     background-color: transparent;
   }
 
-  .bt.alternative:hover,
-  .bt.alternative:active {
+  & .bt.alternative:hover,
+    .bt.alternative:active {
     background-color: #ddb3f8;
   }
 }

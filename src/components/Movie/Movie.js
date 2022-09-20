@@ -2,8 +2,11 @@ import React from "react";
 import { useParams, NavLink } from "react-router-dom";
 import API_URL from "../../utilities/Constants";
 import { useEffect, useState, useCallback } from "react";
+import Booking from "../Booking/Booking";
 
 function Movie() {
+  const [buttonPopup, setButtonPopup] = useState(false);
+
   const { ID } = useParams();
   console.log(ID);
 
@@ -63,6 +66,7 @@ function Movie() {
           <p>Data produkcji:</p>
           <p className="font center">{loadedMovies.year}</p>
         </div>
+
         <NavLink to={`/movies/${loadedMovies.movieId}`} className="left-s b">
           <img
             className="s"
@@ -73,11 +77,14 @@ function Movie() {
       </div>
 
       <div className="font2 mg">
-        {loadedShowing.map((showing) => (
+        {loadedShowing.map((showing) => {
+          const date = new Date(showing.date)
+          return(
           <div className="right-s" key={showing.showingId}>
             <div className="left-t">
               <p>Data: </p>
-              <p className="ticket-p1">{showing.date}</p>
+              <p className="ticket-p1">{date.toLocaleDateString()}</p>
+              <p className="ticket-p1">{date.toLocaleTimeString()}</p>
             </div>
             <div className="center-t">
               <p>Cena biletu: </p>
@@ -87,9 +94,14 @@ function Movie() {
               <p>Numer sali: </p>
               <p className="ticket-p1">{showing.cinemaHallId}</p>
             </div>
-            <div><button className="bt">Rezerwuj</button></div>
+
+            <button onClick={() => setButtonPopup(true)} className="bt">
+              Rezerwuj
+            </button>
+            <Booking trigger={buttonPopup} setTrigger={setButtonPopup}>
+            </Booking>
           </div>
-        ))}
+        )})}
       </div>
     </div>
   );
