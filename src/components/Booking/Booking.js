@@ -1,9 +1,11 @@
 import React from "react";
-//import GooglePayButton from "@google-pay/button-react";
 //import { NavItem } from "react-bootstrap"
 import { useState } from "react";
+import Booked from "./Booked";
 
 function Booking(props) {
+  const [buttonPopup2, setButtonPopup2] = useState(false);
+
   const [message, setMessage] = useState("");
 
   const handleChange = (event) => {
@@ -54,12 +56,15 @@ function Booking(props) {
           </p>
 
           <p class="text">
-            Kwota za każde miejsce wynosi <span>20</span>zł. Musisz zapłacić:{" "}
-            {message * 20}zł.
+            Kwota za każde miejsce wynosi <span>20</span>zł. Musisz zapłacić:
+            <span> {message * 20}</span>zł.
           </p>
         </div>
-        
-        {/* <div><button className="close-btn" onClick={() => props.setTrigger(false)}>Zapłać</button></div> */}
+
+        <button onClick={() => setButtonPopup2(true)} className="bt">
+          Rezerwuj
+        </button>
+        <Booked trigger={buttonPopup2} setTrigger={setButtonPopup2}></Booked>
       </div>
     </div>
   ) : (
